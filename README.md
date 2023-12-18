@@ -1,5 +1,6 @@
 # jc-industry-eapi
 Raml specification
+
 Hello, here is the Api specification using resourceTypes,  a trait named 'client-id-required on all the end points: 
 
 Users
