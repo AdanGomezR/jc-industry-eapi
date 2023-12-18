@@ -1,0 +1,59 @@
+#%RAML 1.0 Library
+usage: |
+  Libraries of generics
+  
+uses: 
+  dataModel: ../CommonsLib.raml
+
+types:
+  Response: !include Response.raml
+
+  GetUsersResponse:
+    type: Response
+    properties: 
+      data:
+        properties:
+          users: dataModel.user[]
+          
+  GetCustomersResponse:
+    type: Response
+    properties: 
+      data:
+        properties:
+          customers: dataModel.customer[]  
+          
+  PostCustomerResponse:
+    type: Response
+    properties: 
+      data:
+        type: string
+          
+  PostUserResponse:
+    type: Response
+    properties: 
+      data:
+        type: string
+          
+  PatchCustomerResponse:
+    type: Response
+    properties: 
+      data:
+        type: string
+        
+  PatchUserResponse:
+    type: Response
+    properties: 
+      data:
+        type: string
+          
+  DeleteCustomerResponse:
+    type: Response
+    properties: 
+      data:
+        type: string
+
+  DeleteUserResponse:
+    type: Response
+    properties: 
+      data:
+        type: string

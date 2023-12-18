@@ -1,0 +1,186 @@
+#%RAML 1.0
+title: JC INDUSTRY EAPI
+baseUri: http://localhost
+version: 1.0 Dev
+
+resourceTypes:
+  collection: !include resourceTypes/collection.raml
+  collection-item: !include resourceTypes/collection-item.raml
+  action-with-body: !include resourceTypes/action-with-body.raml
+  patch-delete: !include  resourceTypes/patch-delete.raml
+
+/users:
+  type: collection
+  get:
+        description: |
+          Gets a list of users
+          Possible error code messages are:
+
+          Error | Code | Description
+          ---------- | ------- | -------
+          400 | BAD_REQUEST | The input doesn't respect the contract expected (required fields, type, etc.)
+          401 | UNAUTHORIZED | Missing, invalid or expired token. To fix, you should re-authenticate the user.
+          403 | FORBIDDEN | Bad OAuth request (wrong consumer key, bad nonce, expired timestamp...)
+          404 | NOT_FOUND | The requested resource is not found.
+          500 | INTERNAL_ERROR | We had a problem with our server. Please to try again later.
+          501 | NOT_IMPLEMENTED | The server either does not recognize the request method, or it lacks the ability to fulfill the request.
+        responses:
+          200:
+            body: 
+              application/json:
+                example: !include examples/response/GetUsersResponseExample.raml
+
+/user:
+  type: action-with-body
+  post:
+      description: |
+        Create a new User Object
+        Possible error code messages are:
+
+        Error | Code | Description
+        ---------- | ------- | -------
+        400 | BAD_REQUEST | The input doesn't respect the contract expected (required fields, type, etc.)
+        401 | UNAUTHORIZED | Missing, invalid or expired token. To fix, you should re-authenticate the user.
+        403 | FORBIDDEN | Bad OAuth request (wrong consumer key, bad nonce, expired timestamp...)
+        404 | NOT_FOUND | The requested resource is not found.
+        500 | INTERNAL_ERROR | We had a problem with our server. Please to try again later.
+        501 | NOT_IMPLEMENTED | The server either does not recognize the request method, or it lacks the ability to fulfill the request.
+      body:
+        application/json:
+          example: !include examples/request/PostUserRequestExample.raml
+      responses:
+        200:
+          body: 
+            application/json:
+              example: !include examples/response/okResponse.raml
+              
+  /{id}:
+    type: patch-delete
+    patch:
+      description: |
+        Update a specific user
+        Possible error code messages are:
+
+        Error | Code | Description
+        ---------- | ------- | -------
+        400 | BAD_REQUEST | The input doesn't respect the contract expected (required fields, type, etc.)
+        401 | UNAUTHORIZED | Missing, invalid or expired token. To fix, you should re-authenticate the user.
+        403 | FORBIDDEN | Bad OAuth request (wrong consumer key, bad nonce, expired timestamp...)
+        404 | NOT_FOUND | The requested resource is not found.
+        500 | INTERNAL_ERROR | We had a problem with our server. Please to try again later.
+        501 | NOT_IMPLEMENTED | The server either does not recognize the request method, or it lacks the ability to fulfill the request.
+      body:
+        application/json:
+          example: !include examples/request/PatchUserRequestExample.raml
+      responses:
+        200:
+          body: 
+            application/json:
+              example: !include examples/response/okResponse.raml
+ 
+    delete:
+      description: |
+        Delete a specific user
+        Possible error code messages are:
+
+        Error | Code | Description
+        ---------- | ------- | -------
+        400 | BAD_REQUEST | The input doesn't respect the contract expected (required fields, type, etc.)
+        401 | UNAUTHORIZED | Missing, invalid or expired token. To fix, you should re-authenticate the user.
+        403 | FORBIDDEN | Bad OAuth request (wrong consumer key, bad nonce, expired timestamp...)
+        404 | NOT_FOUND | The requested resource is not found.
+        500 | INTERNAL_ERROR | We had a problem with our server. Please to try again later.
+        501 | NOT_IMPLEMENTED | The server either does not recognize the request method, or it lacks the ability to fulfill the request.
+      responses:
+        200:
+          body: 
+            application/json:
+              example: !include examples/response/okResponse.raml   
+
+/customers:
+  type: collection
+  get:
+        description: |
+          Gets a list of customers
+          Possible error code messages are:
+
+          Error | Code | Description
+          ---------- | ------- | -------
+          400 | BAD_REQUEST | The input doesn't respect the contract expected (required fields, type, etc.)
+          401 | UNAUTHORIZED | Missing, invalid or expired token. To fix, you should re-authenticate the user.
+          403 | FORBIDDEN | Bad OAuth request (wrong consumer key, bad nonce, expired timestamp...)
+          404 | NOT_FOUND | The requested resource is not found.
+          500 | INTERNAL_ERROR | We had a problem with our server. Please to try again later.
+          501 | NOT_IMPLEMENTED | The server either does not recognize the request method, or it lacks the ability to fulfill the request.
+        responses:
+          200:
+            body: 
+              application/json:
+                example: !include examples/response/GetCustomersResponseExample.raml
+
+/customer:
+  type: action-with-body
+  post:
+      description: |
+        Create a new Customer Object
+        Possible error code messages are:
+
+        Error | Code | Description
+        ---------- | ------- | -------
+        400 | BAD_REQUEST | The input doesn't respect the contract expected (required fields, type, etc.)
+        401 | UNAUTHORIZED | Missing, invalid or expired token. To fix, you should re-authenticate the user.
+        403 | FORBIDDEN | Bad OAuth request (wrong consumer key, bad nonce, expired timestamp...)
+        404 | NOT_FOUND | The requested resource is not found.
+        500 | INTERNAL_ERROR | We had a problem with our server. Please to try again later.
+        501 | NOT_IMPLEMENTED | The server either does not recognize the request method, or it lacks the ability to fulfill the request.
+      body:
+        application/json:
+          example: !include examples/request/PostCustomerRequestExample.raml
+      responses:
+        200:
+          body: 
+            application/json:
+              example: !include examples/response/okResponse.raml
+              
+  /{id}:
+    type: patch-delete
+    patch:
+      description: |
+        Update a specific customer
+        Possible error code messages are:
+
+        Error | Code | Description
+        ---------- | ------- | -------
+        400 | BAD_REQUEST | The input doesn't respect the contract expected (required fields, type, etc.)
+        401 | UNAUTHORIZED | Missing, invalid or expired token. To fix, you should re-authenticate the user.
+        403 | FORBIDDEN | Bad OAuth request (wrong consumer key, bad nonce, expired timestamp...)
+        404 | NOT_FOUND | The requested resource is not found.
+        500 | INTERNAL_ERROR | We had a problem with our server. Please to try again later.
+        501 | NOT_IMPLEMENTED | The server either does not recognize the request method, or it lacks the ability to fulfill the request.
+      body:
+        application/json:
+          example: !include examples/request/PatchCustomerRequestExample.raml
+      responses:
+        200:
+          body: 
+            application/json:
+              example: !include examples/response/okResponse.raml
+ 
+    delete:
+      description: |
+        Delete a specific customer
+        Possible error code messages are:
+
+        Error | Code | Description
+        ---------- | ------- | -------
+        400 | BAD_REQUEST | The input doesn't respect the contract expected (required fields, type, etc.)
+        401 | UNAUTHORIZED | Missing, invalid or expired token. To fix, you should re-authenticate the user.
+        403 | FORBIDDEN | Bad OAuth request (wrong consumer key, bad nonce, expired timestamp...)
+        404 | NOT_FOUND | The requested resource is not found.
+        500 | INTERNAL_ERROR | We had a problem with our server. Please to try again later.
+        501 | NOT_IMPLEMENTED | The server either does not recognize the request method, or it lacks the ability to fulfill the request.
+      responses:
+        200:
+          body: 
+            application/json:
+              example: !include examples/response/okResponse.raml   

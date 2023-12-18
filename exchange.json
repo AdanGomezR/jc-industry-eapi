@@ -1,0 +1,12 @@
+{
+  "main" : "api.raml",
+  "name" : "jc-industry-eapi",
+  "classifier" : "raml",
+  "tags" : [ ],
+  "groupId" : "d71b2c59-cfb9-4469-b03a-c0b07eaa1d9b",
+  "assetId" : "jc-industry-eapi",
+  "version" : "1.0.0",
+  "apiVersion" : "",
+  "dependencies" : [ ],
+  "descriptorVersion" : "1.0.0"
+}

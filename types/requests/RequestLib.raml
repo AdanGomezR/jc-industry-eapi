@@ -1,0 +1,37 @@
+#%RAML 1.0 Library
+usage: Contains a list of requests
+
+uses:
+  dataModel: ../CommonsLib.raml
+  
+types:    
+  PostCustomerRequest:
+    type: object
+    properties: 
+      data:
+        properties:
+          customer: dataModel.customer
+          
+  PostUserRequest:
+    type: object
+    properties: 
+      data:
+        properties:
+          user: dataModel.user
+          
+  PatchCustomerRequest:
+    type: object
+    properties: 
+      data:
+        properties:
+          customer: dataModel.customer
+
+  PatchUserRequest:
+    type: object
+    properties: 
+      data:
+        properties:
+          user: dataModel.user
+
+      
+  
